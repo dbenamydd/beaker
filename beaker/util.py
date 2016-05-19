@@ -61,19 +61,6 @@ def skip_if(predicate, reason=None):
     return decorate
 
 
-def assert_raises(except_cls, callable_, *args, **kw):
-    """Assert the given exception is raised by the given function + arguments."""
-
-    try:
-        callable_(*args, **kw)
-        success = False
-    except except_cls:
-        success = True
-
-    # assert outside the block so it works for AssertionError too !
-    assert success, "Callable did not raise an exception"
-
-
 def verify_directory(dir):
     """verifies and creates a directory.  tries to
     ignore collisions with other threads and processes."""

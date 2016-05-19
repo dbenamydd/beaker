@@ -6,6 +6,7 @@ import time
 import warnings
 
 from nose import SkipTest
+from nose.tools import assert_raises
 
 from beaker.crypto import has_aes
 from beaker.session import Session
@@ -315,7 +316,7 @@ def test_invalidate_corrupt():
     f.write("crap")
     f.close()
 
-    util.assert_raises(
+    assert_raises(
         pickle.UnpicklingError,
         get_session,
         use_cookies=False, type='file',
